@@ -12,4 +12,20 @@ class Game
   def immunity_challenge
     @tribes[0]
   end
+
+  def clear_tribes
+    @tribes.clear
+  end
+
+  def merge(tribe_name)
+    members = (@tribes.first.members << @tribes.last.members).flatten!
+    return Tribe.new({name:tribe_name, members: members})
+    
+  end
+
+  def individual_immunity_challenge
+    tribe = @tribes.first
+    imunity_index = rand(tribe.members.length)
+    return tribe.members[imunity_index]
+  end
 end
