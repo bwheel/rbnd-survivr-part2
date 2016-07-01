@@ -10,14 +10,29 @@ class Jury
   end
 
   def cast_votes(finalists)
-    # todo: figure out how to get vote from contestant.
-    result = Hash.new(finalists.length)
-    @members.each do |member|
-      #result << member.vote(finalists)
+    
+    # create a Hash variable to return the result.
+    result = Hash.new(0)
 
+    # foreach Jury Member, they should cast a vote.
+    @members.each do |member|
+      
+      # Append the result of the vote to the finalist.
+      result[member.cast_vote(finalists)] += 1
     end
     
     return result
+  end
+
+  def report_votes(final_votes)
+    
+    final_votes.each do |finalist, score|
+      finalist.print_score score
+    end
+  end
+
+  def announce_winner(final_votes)
+    
 
   end
 end
