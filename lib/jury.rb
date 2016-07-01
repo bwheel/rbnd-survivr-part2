@@ -33,6 +33,17 @@ class Jury
 
   def announce_winner(final_votes)
     
+    # start with a default winner to compare with later.
+    finalist_with_most_votes = final_votes.keys[0]    
 
+    # foreach finalist, look for the largest
+    final_votes.each do |finalist, votes|
+      finalist_with_most_votes = finalist if final_votes[finalist_with_most_votes] < votes
+    end
+    
+    #return the winner
+    return finalist_with_most_votes
+ 
   end
+
 end
