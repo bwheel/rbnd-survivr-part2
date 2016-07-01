@@ -27,4 +27,8 @@ class Contestant
     puts "#{@name} has #{score} votes"
   end
 
+  def print
+    puts @name
+  end
+
 end
