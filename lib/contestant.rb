@@ -1,3 +1,4 @@
+
 class Contestant
 
   attr_reader :name
@@ -20,11 +21,16 @@ class Contestant
   end
 
   def print_vote(vote)
-    puts "#{@name} votes for #{vote}"
+    name = "#{@name}".yellow
+    my_vote = "#{score}".blue
+
+    puts "#{name} votes for #{my_vote}"
   end
 
   def print_score(score)
-    puts "#{@name} has #{score} votes"
+    name = "#{@name}".yellow
+    my_score = "#{score}".blue
+    puts "#{name} has #{my_score} votes"
   end
 
   def print

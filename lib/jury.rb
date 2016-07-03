@@ -42,8 +42,10 @@ class Jury
     end
     
     #return the winner
+    puts "#{finalist_with_most_votes} won!"
+    
     return finalist_with_most_votes
- 
+    
   end
 
 end

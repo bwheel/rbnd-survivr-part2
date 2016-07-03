@@ -5,7 +5,7 @@ class Tribe
     @name = options[:name]
     @members = options[:members]
 
-    puts "The #{@name} tripe was created with the following members"
+    puts "The #{@name} tribe was created with the following members"
     @members.each do |member|
       member.print
     end
@@ -19,16 +19,19 @@ class Tribe
   # Phase 1: One of the contestants is removed from losing tribe(this object).
   def tribal_council(immune_hash)
     
-    immune = immune_hash[:immune]
-
+    
     byebye_member = ""
 
-    if immune == nil 
+    if not immune_hash.key? :immune
       # phase 1
       remove_index = rand(@members.length)
       byebye_member = @members.delete_at(remove_index)
+    
     else
+      
       # phase 3
+      immune = immune_hash[:immune]
+      
       # remove the immune from members
       @members.delete(immune)
       

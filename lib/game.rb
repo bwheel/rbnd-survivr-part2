@@ -10,7 +10,8 @@ class Game
 
   # this method returns the losing tribe? TODO: check that it's the losers or winners
   def immunity_challenge
-    @tribes[0]
+    imunity_index = rand(@tribes.length)
+    return @tribes[imunity_index]
   end
 
   def clear_tribes
