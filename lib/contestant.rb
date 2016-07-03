@@ -1,4 +1,5 @@
 
+require('colorizer')
 class Contestant
 
   attr_reader :name
@@ -22,7 +23,7 @@ class Contestant
 
   def print_vote(vote)
     name = "#{@name}".yellow
-    my_vote = "#{score}".blue
+    my_vote = "#{vote}".blue
 
     puts "#{name} votes for #{my_vote}"
   end
@@ -34,7 +35,7 @@ class Contestant
   end
 
   def print
-    puts @name
+    puts "#{@name}.yellow"
   end
 
 end

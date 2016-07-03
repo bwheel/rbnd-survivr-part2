@@ -42,7 +42,7 @@ class Jury
     end
     
     #return the winner
-    puts "#{finalist_with_most_votes} won!"
+    puts "#{finalist_with_most_votes}".yellow << " won!"
     
     return finalist_with_most_votes
     

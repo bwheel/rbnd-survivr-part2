@@ -4,12 +4,12 @@ class Tribe
   def initialize(options)
     @name = options[:name]
     @members = options[:members]
-
-    puts "The #{@name} tribe was created with the following members"
+    puts "---------------------".grey
+    puts "The " << "#{@name}".pink << " tribe was created with the following members"
     @members.each do |member|
       member.print
     end
-
+    puts "---------------------".grey
   end
 
   def to_s
