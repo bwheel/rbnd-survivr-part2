@@ -12,7 +12,7 @@ class Jury
   def cast_votes(finalists)
     
     # create a Hash variable to return the result.
-    result = Hash.new(0)
+    result = Hash.new { |h,k| h[k] = 0 }
 
     # foreach Jury Member, they should cast a vote.
     @members.each do |member|
@@ -37,9 +37,7 @@ class Jury
     finalist_with_most_votes = final_votes.keys[0]    
 
     # foreach finalist, look for the largest
-    final_votes.each do |finalist, votes|
-      finalist_with_most_votes = finalist if final_votes[finalist_with_most_votes] < votes
-    end
+    finalist_with_most_votes =final_votes.max_by{ |finalist, votes| votes }.first
     
     #return the winner
     puts "#{finalist_with_most_votes}".yellow << " won!"
