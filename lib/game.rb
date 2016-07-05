@@ -1,7 +1,7 @@
 class Game
   attr_reader :tribes
-  def initialize(first_tribe, second_tribe)
-    @tribes = [first_tribe, second_tribe]
+  def initialize(*tribes)
+    @tribes = ([] << tribes).flatten!
   end
 
   def add_tribe(tribe)
@@ -10,8 +10,7 @@ class Game
 
   # this method returns the losing tribe? TODO: check that it's the losers or winners
   def immunity_challenge
-    imunity_index = rand(@tribes.length)
-    return @tribes[imunity_index]
+    return @tribes.sample
   end
 
   def clear_tribes
@@ -19,8 +18,18 @@ class Game
   end
 
   def merge(tribe_name)
+    
+    # combine the remaining members into one list
     members = (@tribes.first.members << @tribes.last.members).flatten!
-    return Tribe.new({name:tribe_name, members: members})
+    
+    # remove the old tribes.
+    clear_tribes
+
+    # create and add new tribe with the remaining members list
+    add_tribe Tribe.new({name:tribe_name, members: members})
+
+    # return the remaining tribe.
+    @tribes.first
     
   end
 
