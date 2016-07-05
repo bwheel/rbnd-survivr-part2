@@ -26,7 +26,7 @@ def phase_one
 
   count = 0
   # Step 2: Tribes compete in 8 immunity challenges.
-  8.times do 
+  8.times do
     # --- Step 2a: There is a losing tribe each time.
     losing_tribe = @borneo.immunity_challenge
 
@@ -36,8 +36,6 @@ def phase_one
     count += 1
   end
   
-  #  Step 3: merge the 12 remaining contestants into one tribe.
-  @merge_tribe = @borneo.merge("Cello")
   return count
 end
 
@@ -69,12 +67,6 @@ def phase_three
 
     count += 1
   end
-
-  # Step 2: The 7 jry members vote for one finalist. The most votes win.
-  votes = @jury.cast_votes(@merge_tribe.members)
-  @jury.report_votes votes
-  @jury.announce_winner votes
-
   return count
 end
 
