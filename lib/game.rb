@@ -34,8 +34,6 @@ class Game
   end
 
   def individual_immunity_challenge
-    tribe = @tribes.first
-    imunity_index = rand(tribe.members.length)
-    return tribe.members[imunity_index]
+    @tribes.first.members.sample
   end
 end

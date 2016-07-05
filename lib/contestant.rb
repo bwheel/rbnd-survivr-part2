@@ -13,8 +13,8 @@ class Contestant
   end
 
   def cast_vote(finalist)
-    #TODO: Make this a randome selection.
-    vote = finalist[rand(finalist.length)]
+    
+    vote = finalist.sample
 
     print_vote vote
     
